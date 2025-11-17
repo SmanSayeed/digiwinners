@@ -1,0 +1,112 @@
+{
+  "skills": [
+    {
+      "id": 1,
+      "name": "Laravel",
+      "category": "backend",
+      "icon": "SiLaravel"
+    },
+    {
+      "id": 2,
+      "name": "Next.js",
+      "category": "frontend",
+      "icon": "SiNextdotjs"
+    },
+    {
+      "id": 3,
+      "name": "Node.js",
+      "category": "backend",
+      "icon": "SiNodedotjs"
+    },
+    {
+      "id": 4,
+      "name": "Nest.js",
+      "category": "backend",
+      "icon": "SiNestjs"
+    },
+    {
+      "id": 5,
+      "name": "Linux",
+      "category": "devops",
+      "icon": "SiLinux"
+    },
+    {
+      "id": 6,
+      "name": "AWS",
+      "category": "cloud",
+      "icon": "SiAmazonaws"
+    },
+    {
+      "id": 7,
+      "name": "WordPress",
+      "category": "cms",
+      "icon": "SiWordpress"
+    },
+    {
+      "id": 8,
+      "name": "Flutter",
+      "category": "mobile",
+      "icon": "SiFlutter"
+    },
+    {
+      "id": 9,
+      "name": "React Native",
+      "category": "mobile",
+      "icon": "SiReact"
+    },
+    {
+      "id": 10,
+      "name": "Android",
+      "category": "mobile",
+      "icon": "SiAndroid"
+    },
+    {
+      "id": 11,
+      "name": "iOS",
+      "category": "mobile",
+      "icon": "SiApple"
+    },
+    {
+      "id": 12,
+      "name": "Electron",
+      "category": "desktop",
+      "icon": "SiElectron"
+    },
+    {
+      "id": 13,
+      "name": "MySQL",
+      "category": "database",
+      "icon": "SiMysql"
+    },
+    {
+      "id": 14,
+      "name": "PostgreSQL",
+      "category": "database",
+      "icon": "SiPostgresql"
+    },
+    {
+      "id": 15,
+      "name": "MongoDB",
+      "category": "database",
+      "icon": "SiMongodb"
+    },
+    {
+      "id": 16,
+      "name": "React",
+      "category": "frontend",
+      "icon": "SiReact"
+    },
+    {
+      "id": 17,
+      "name": "TypeScript",
+      "category": "language",
+      "icon": "SiTypescript"
+    },
+    {
+      "id": 18,
+      "name": "Python",
+      "category": "language",
+      "icon": "SiPython"
+    }
+  ]
+}

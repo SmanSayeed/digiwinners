@@ -1,0 +1,24 @@
+{
+  "socialLinks": [
+    {
+      "platform": "twitter",
+      "url": "https://twitter.com",
+      "icon": "FaTwitter"
+    },
+    {
+      "platform": "linkedin",
+      "url": "https://linkedin.com",
+      "icon": "FaLinkedin"
+    },
+    {
+      "platform": "github",
+      "url": "https://github.com",
+      "icon": "FaGithub"
+    },
+    {
+      "platform": "instagram",
+      "url": "https://instagram.com",
+      "icon": "FaInstagram"
+    }
+  ]
+}

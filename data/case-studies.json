@@ -1,0 +1,31 @@
+{
+  "caseStudies": [
+    {
+      "id": 1,
+      "title": "FinFlow",
+      "slug": "finflow-saas-payment",
+      "description": "Payment processing platform",
+      "technologies": ["Next.js", "Node.js", "PostgreSQL", "Kubernetes", "AWS"],
+      "image": "/placeholder.svg?height=500&width=800",
+      "link": "/case-studies/finflow-saas-payment"
+    },
+    {
+      "id": 2,
+      "title": "EcoStore",
+      "slug": "ecostore-ecommerce",
+      "description": "Modern eCommerce platform",
+      "technologies": ["React", "Node.js", "PostgreSQL", "Redis", "AWS"],
+      "image": "/placeholder.svg?height=500&width=800",
+      "link": "/case-studies/ecostore-ecommerce"
+    },
+    {
+      "id": 3,
+      "title": "TeamSync",
+      "slug": "teamsync-collaboration",
+      "description": "Real-time collaboration tool",
+      "technologies": ["Next.js", "WebSocket", "Redis", "PostgreSQL", "Docker"],
+      "image": "/placeholder.svg?height=500&width=800",
+      "link": "/case-studies/teamsync-collaboration"
+    }
+  ]
+}

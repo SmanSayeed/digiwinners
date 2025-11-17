@@ -1,0 +1,16 @@
+{
+  "team": [
+    {
+      "id": 1,
+      "name": "Alex Johnson",
+      "role": "Founder & CEO",
+      "bio": "15+ years in enterprise software development and system architecture",
+      "image": "/placeholder.svg?height=300&width=300",
+      "social": {
+        "twitter": "https://twitter.com",
+        "linkedin": "https://linkedin.com",
+        "github": "https://github.com"
+      }
+    }
+  ]
+}
