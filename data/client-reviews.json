@@ -1,0 +1,65 @@
+{
+  "reviews": [
+    {
+      "id": 1,
+      "clientName": "Ahmed Rahman",
+      "clientRole": "CEO, StepStyle BD",
+      "clientCompany": "StepStyle BD",
+      "clientImage": "/placeholder-user.jpg",
+      "rating": 5,
+      "review": "Digiwinners transformed our business with their exceptional e-commerce platform. The zone-wise shipping and payment management features have significantly improved our operations. Highly recommended!",
+      "project": "StepStyle BD E-commerce Platform"
+    },
+    {
+      "id": 2,
+      "clientName": "Fatima Khan",
+      "clientRole": "Founder, NurBuy",
+      "clientCompany": "NurBuy",
+      "clientImage": "/placeholder-user.jpg",
+      "rating": 5,
+      "review": "The flexibility to choose between AWS S3 and server storage was exactly what we needed. The team delivered a robust portfolio marketplace that exceeded our expectations. Professional and reliable service.",
+      "project": "NurBuy Portfolio Marketplace"
+    },
+    {
+      "id": 3,
+      "clientName": "Mohammad Hassan",
+      "clientRole": "HR Director",
+      "clientCompany": "Enterprise Solutions",
+      "clientImage": "/placeholder-user.jpg",
+      "rating": 5,
+      "review": "The HRM system has revolutionized how we manage our workforce. The attendance tracking and payroll features are incredibly efficient. Great support throughout the project lifecycle.",
+      "project": "HRM Management System"
+    },
+    {
+      "id": 4,
+      "clientName": "Sara Ahmed",
+      "clientRole": "Operations Manager",
+      "clientCompany": "Study Abroad Consultancy",
+      "clientImage": "/placeholder-user.jpg",
+      "rating": 5,
+      "review": "The student management system has made our operations seamless. The follow-up tracking and notification system ensures we never miss an opportunity. Excellent work!",
+      "project": "Study Abroad Consultancy System"
+    },
+    {
+      "id": 5,
+      "clientName": "Karim Uddin",
+      "clientRole": "Business Owner",
+      "clientCompany": "Import Business",
+      "clientImage": "/placeholder-user.jpg",
+      "rating": 5,
+      "review": "The import management system has streamlined our entire operation. Shipment tracking and inventory management features are top-notch. Very satisfied with the results.",
+      "project": "Import Management System"
+    },
+    {
+      "id": 6,
+      "clientName": "Ayesha Begum",
+      "clientRole": "Project Manager",
+      "clientCompany": "LP GeoBot",
+      "clientImage": "/placeholder-user.jpg",
+      "rating": 5,
+      "review": "Digiwinners delivered an outstanding location intelligence platform. The mapping capabilities and data visualization features are impressive. Professional team with great technical expertise.",
+      "project": "LP GeoBot Platform"
+    }
+  ]
+}
+

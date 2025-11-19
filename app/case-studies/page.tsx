@@ -17,13 +17,45 @@ export default function CaseStudiesPage() {
       <FloatingWhatsApp />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4 md:px-8 max-w-7xl mx-auto">
+      <section className="relative pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
+          <motion.div
+            className="absolute top-10 left-20 w-96 h-96 bg-accent/5 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          <motion.div
+            className="absolute bottom-10 right-20 w-72 h-72 bg-accent/5 rounded-full blur-3xl"
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+          />
+        </div>
+
         <ScrollAnimation>
-          <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Case Studies</h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <div className="text-center relative z-10">
+            <motion.h1
+              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground to-accent bg-clip-text text-transparent"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              Case Studies
+            </motion.h1>
+            <motion.p
+              className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
               Real projects, real results, real impact
-            </p>
+            </motion.p>
           </div>
         </ScrollAnimation>
       </section>
@@ -45,18 +77,24 @@ export default function CaseStudiesPage() {
                   />
                 </div>
                 <div className="p-6">
-                  <p className="text-sm text-accent mb-2">{study.client}</p>
+                  {study.client && (
+                    <p className="text-sm text-accent mb-2">{study.client}</p>
+                  )}
                   <h3 className="text-xl font-bold mb-2">{study.title}</h3>
-                  <p className="text-muted-foreground text-sm mb-6">{study.summary}</p>
+                  {study.summary && (
+                    <p className="text-muted-foreground text-sm mb-6">{study.summary}</p>
+                  )}
                   
-                  <div className="mb-6 space-y-2">
-                    {Object.entries(study.results).map(([key, value]) => (
-                      <div key={key} className="flex justify-between text-sm">
-                        <span className="text-muted-foreground capitalize">{key}:</span>
-                        <span className="font-semibold text-accent">{value}</span>
-                      </div>
-                    ))}
-                  </div>
+                  {study.results && Object.keys(study.results).length > 0 && (
+                    <div className="mb-6 space-y-2">
+                      {Object.entries(study.results).map(([key, value]) => (
+                        <div key={key} className="flex justify-between text-sm">
+                          <span className="text-muted-foreground capitalize">{key}:</span>
+                          <span className="font-semibold text-accent">{value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
 
                   <div className="flex flex-wrap gap-2 mb-6">
                     {study.technologies.slice(0, 3).map((tech, i) => (

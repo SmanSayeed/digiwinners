@@ -21,13 +21,45 @@ export default function ServicesPage() {
       <FloatingWhatsApp />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4 md:px-8 max-w-7xl mx-auto">
+      <section className="relative pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
+          <motion.div
+            className="absolute top-10 right-20 w-96 h-96 bg-accent/5 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          <motion.div
+            className="absolute bottom-10 left-20 w-72 h-72 bg-accent/5 rounded-full blur-3xl"
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+          />
+        </div>
+
         <ScrollAnimation>
-          <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Our Services</h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <div className="text-center relative z-10">
+            <motion.h1
+              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground to-accent bg-clip-text text-transparent"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              Our Services
+            </motion.h1>
+            <motion.p
+              className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
               Comprehensive IT solutions tailored to your business needs
-            </p>
+            </motion.p>
           </div>
         </ScrollAnimation>
       </section>
@@ -38,12 +70,30 @@ export default function ServicesPage() {
           {servicesData.services.map((service, idx) => (
             <ScrollAnimation key={service.id} variant="fadeUp" delay={idx * 0.1}>
               <motion.div
-                className="p-8 bg-secondary rounded-xl border border-border hover:border-accent transition-all group"
-                whileHover={{ y: -5 }}
+                className="p-8 bg-secondary rounded-xl border border-border hover:border-accent transition-all group relative overflow-hidden"
+                whileHover={{ y: -8, scale: 1.02 }}
+                id={service.slug}
               >
-                <div className="text-4xl mb-4">{service.icon === 'cloud' ? '☁️' : service.icon === 'shopping-cart' ? '🛒' : service.icon === 'zap' ? '⚡' : '🏗️'}</div>
-                <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
-                <p className="text-muted-foreground mb-6">{service.description}</p>
+                {/* Hover gradient effect */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
+                />
+                <div className="relative z-10">
+                  <div className="text-4xl mb-4">
+                    {service.icon === 'cloud' ? '☁️' : 
+                     service.icon === 'shopping-cart' ? '🛒' : 
+                     service.icon === 'zap' ? '⚡' : 
+                     service.icon === 'layers' ? '🏗️' :
+                     service.icon === 'book' ? '📚' :
+                     service.icon === 'clipboard' ? '📋' :
+                     service.icon === 'briefcase' ? '💼' :
+                     service.icon === 'cash-register' ? '💰' :
+                     service.icon === 'warehouse' ? '📦' :
+                     service.icon === 'globe' ? '🌐' :
+                     service.icon === 'palette' ? '🎨' : '🚀'}
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
+                  <p className="text-muted-foreground mb-6">{service.description}</p>
                 
                 <div className="mb-6">
                   <h4 className="font-semibold mb-3">Key Features:</h4>
@@ -67,12 +117,13 @@ export default function ServicesPage() {
                   </div>
                 </div>
 
-                <Link
-                  href={`/services/${service.slug}`}
-                  className="inline-block px-6 py-2 bg-accent text-accent-foreground rounded-lg font-semibold hover:opacity-90 transition-opacity"
-                >
-                  Learn More
-                </Link>
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="inline-block px-6 py-2 bg-accent text-accent-foreground rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                  >
+                    Learn More
+                  </Link>
+                </div>
               </motion.div>
             </ScrollAnimation>
           ))}

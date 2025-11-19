@@ -2,30 +2,260 @@
   "caseStudies": [
     {
       "id": 1,
-      "title": "FinFlow",
-      "slug": "finflow-saas-payment",
-      "description": "Payment processing platform",
-      "technologies": ["Next.js", "Node.js", "PostgreSQL", "Kubernetes", "AWS"],
-      "image": "/placeholder.svg?height=500&width=800",
-      "link": "/case-studies/finflow-saas-payment"
+      "title": "StepStyle BD - Shoe E-commerce Platform",
+      "slug": "stepstylebd-shoe-ecommerce",
+      "client": "StepStyle BD",
+      "description": "Modern shoe e-commerce platform with advanced features",
+      "summary": "Built a comprehensive e-commerce platform for shoe retail with Laravel and Inertia.js, featuring advanced payment management, zone-wise shipping, and real-time notifications.",
+      "results": {
+        "sales increase": "250%",
+        "order processing": "3x faster",
+        "customer satisfaction": "95%",
+        "mobile orders": "70%"
+      },
+      "technologies": ["Laravel", "Inertia.js", "MySQL", "Vue.js", "Payment Gateway", "Notification System"],
+      "image": "/Images/projects/stepstylebd/shoe.png",
+      "gallery": [
+        {
+          "type": "image",
+          "url": "/Images/projects/stepstylebd/shoe.png",
+          "alt": "StepStyle BD Homepage"
+        },
+        {
+          "type": "image",
+          "url": "/Images/projects/stepstylebd/shoe-details.png",
+          "alt": "Product Details Page"
+        },
+        {
+          "type": "image",
+          "url": "/Images/projects/stepstylebd/shoe-dashboard.png",
+          "alt": "Admin Dashboard"
+        },
+        {
+          "type": "image",
+          "url": "/Images/projects/stepstylebd/Screenshot 2025-11-17 215714.png",
+          "alt": "Product Management"
+        },
+        {
+          "type": "image",
+          "url": "/Images/projects/stepstylebd/Screenshot 2025-11-17 212924.png",
+          "alt": "Shopping Cart"
+        }
+      ],
+      "link": "/case-studies/stepstylebd-shoe-ecommerce",
+      "features": [
+        "Advanced payment enable/disable from admin panel",
+        "Zone-wise shipping charge calculation",
+        "Real-time notification system",
+        "Responsive design for all devices",
+        "Secure payment processing",
+        "Order tracking and management"
+      ]
     },
     {
       "id": 2,
-      "title": "EcoStore",
-      "slug": "ecostore-ecommerce",
-      "description": "Modern eCommerce platform",
-      "technologies": ["React", "Node.js", "PostgreSQL", "Redis", "AWS"],
-      "image": "/placeholder.svg?height=500&width=800",
-      "link": "/case-studies/ecostore-ecommerce"
+      "title": "NurBuy - Portfolio & Project Marketplace",
+      "slug": "nurbuy-portfolio-marketplace",
+      "client": "NurBuy",
+      "description": "Portfolio website with free and paid projects section",
+      "summary": "Developed a portfolio marketplace platform with flexible storage options, allowing users to showcase free and paid projects with AWS S3 or server storage choice.",
+      "results": {
+        "user engagement": "180%",
+        "project uploads": "500+",
+        "storage efficiency": "40% cost reduction",
+        "user retention": "88%"
+      },
+      "technologies": ["Laravel", "AWS S3", "MySQL", "Vue.js", "Payment Integration", "File Management"],
+      "image": "/Images/projects/nurbuy/nurbuy.png",
+      "gallery": [
+        {
+          "type": "image",
+          "url": "/Images/projects/nurbuy/nurbuy.png",
+          "alt": "NurBuy Homepage"
+        },
+        {
+          "type": "image",
+          "url": "/Images/projects/nurbuy/nurbuy-dashboard.png",
+          "alt": "Project Dashboard"
+        }
+      ],
+      "link": "/case-studies/nurbuy-portfolio-marketplace",
+      "features": [
+        "Free and paid projects section",
+        "AWS S3 or server storage choice",
+        "Admin-managed storage preferences",
+        "Project categorization and filtering",
+        "Secure payment processing",
+        "User portfolio management"
+      ]
     },
     {
       "id": 3,
-      "title": "TeamSync",
-      "slug": "teamsync-collaboration",
-      "description": "Real-time collaboration tool",
-      "technologies": ["Next.js", "WebSocket", "Redis", "PostgreSQL", "Docker"],
-      "image": "/placeholder.svg?height=500&width=800",
-      "link": "/case-studies/teamsync-collaboration"
+      "title": "HRM System - Human Resource Management",
+      "slug": "hrm-human-resource-management",
+      "client": "Enterprise Client",
+      "description": "Comprehensive HRM system for employee management",
+      "summary": "Built a full-featured Human Resource Management system with employee tracking, payroll management, attendance monitoring, and performance evaluation.",
+      "results": {
+        "efficiency increase": "200%",
+        "processing time": "-60%",
+        "employee satisfaction": "92%",
+        "data accuracy": "99%"
+      },
+      "technologies": ["Laravel", "MySQL", "Vue.js", "Chart.js", "PDF Generation", "Email System"],
+      "image": "/Images/projects/hrm/hrm-1.webp",
+      "gallery": [
+        {
+          "type": "image",
+          "url": "/Images/projects/hrm/hrm-1.webp",
+          "alt": "HRM Dashboard"
+        },
+        {
+          "type": "image",
+          "url": "/Images/projects/hrm/hrm-2.webp",
+          "alt": "Employee Management"
+        },
+        {
+          "type": "image",
+          "url": "/Images/projects/hrm/hrm-3.webp",
+          "alt": "Attendance Tracking"
+        },
+        {
+          "type": "image",
+          "url": "/Images/projects/hrm/hrm-4.webp",
+          "alt": "Reports & Analytics"
+        }
+      ],
+      "link": "/case-studies/hrm-human-resource-management",
+      "features": [
+        "Employee profile management",
+        "Attendance tracking system",
+        "Payroll processing",
+        "Performance evaluation",
+        "Leave management",
+        "Reports and analytics"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "LP GeoBot - Location Intelligence Platform",
+      "slug": "lpgeobot-location-intelligence",
+      "client": "LP GeoBot",
+      "description": "Geographic data and location intelligence platform",
+      "summary": "Developed an advanced location intelligence platform with geographic data visualization, mapping capabilities, and location-based analytics.",
+      "results": {
+        "data accuracy": "98%",
+        "processing speed": "5x faster",
+        "user adoption": "85%",
+        "efficiency": "250%"
+      },
+      "technologies": ["React", "Node.js", "PostgreSQL", "Map APIs", "Geolocation", "Data Visualization"],
+      "image": "/Images/projects/lpgeobot/lp-geobot.webp",
+      "gallery": [
+        {
+          "type": "image",
+          "url": "/Images/projects/lpgeobot/lp-geobot.webp",
+          "alt": "LP GeoBot Platform"
+        }
+      ],
+      "link": "/case-studies/lpgeobot-location-intelligence",
+      "features": [
+        "Interactive mapping interface",
+        "Geographic data visualization",
+        "Location-based analytics",
+        "Real-time data updates",
+        "Export capabilities",
+        "Multi-layer mapping"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Study Abroad Consultancy - Student Management System",
+      "slug": "study-abroad-consultancy",
+      "client": "Study Abroad Consultancy",
+      "description": "Comprehensive student management system for consultancy",
+      "summary": "Created a complete student management system for study abroad consultancy with application tracking, follow-up management, and notification system.",
+      "results": {
+        "application processing": "3x faster",
+        "student satisfaction": "94%",
+        "follow-up efficiency": "200%",
+        "system adoption": "100%"
+      },
+      "technologies": ["Laravel", "MySQL", "Vue.js", "Notification System", "PDF Generation", "Email Integration"],
+      "image": "/Images/projects/study-abroad-consultancy/study-abroad-dashboard.png",
+      "gallery": [
+        {
+          "type": "image",
+          "url": "/Images/projects/study-abroad-consultancy/study-abroad-dashboard.png",
+          "alt": "Dashboard Overview"
+        },
+        {
+          "type": "image",
+          "url": "/Images/projects/study-abroad-consultancy/study-abroad-menu.png",
+          "alt": "Navigation Menu"
+        },
+        {
+          "type": "image",
+          "url": "/Images/projects/study-abroad-consultancy/study-abroad-followup.png",
+          "alt": "Follow-up Management"
+        },
+        {
+          "type": "image",
+          "url": "/Images/projects/study-abroad-consultancy/study-abroad-notificaiton.png",
+          "alt": "Notification System"
+        },
+        {
+          "type": "image",
+          "url": "/Images/projects/study-abroad-consultancy/study-abroad-details.png",
+          "alt": "Student Details"
+        },
+        {
+          "type": "image",
+          "url": "/Images/projects/study-abroad-consultancy/Screenshot 2025-11-13 001123.png",
+          "alt": "Application Form"
+        }
+      ],
+      "link": "/case-studies/study-abroad-consultancy",
+      "features": [
+        "Student application management",
+        "Follow-up tracking system",
+        "Real-time notifications",
+        "Document management",
+        "Application status tracking",
+        "Reporting and analytics"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Import Management System",
+      "slug": "import-management-system",
+      "client": "Import Business Client",
+      "description": "Complete import business management solution",
+      "summary": "Developed a comprehensive import management system for tracking shipments, managing inventory, handling customs, and processing payments.",
+      "results": {
+        "order accuracy": "99%",
+        "processing time": "-50%",
+        "cost efficiency": "30%",
+        "customer satisfaction": "96%"
+      },
+      "technologies": ["Laravel", "MySQL", "Vue.js", "Inventory Management", "Payment Processing", "Reporting"],
+      "image": "/Images/projects/import/import.webp",
+      "gallery": [
+        {
+          "type": "image",
+          "url": "/Images/projects/import/import.webp",
+          "alt": "Import Management Dashboard"
+        }
+      ],
+      "link": "/case-studies/import-management-system",
+      "features": [
+        "Shipment tracking",
+        "Inventory management",
+        "Customs documentation",
+        "Payment processing",
+        "Supplier management",
+        "Financial reporting"
+      ]
     }
   ]
 }

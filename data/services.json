@@ -2,40 +2,60 @@
   "services": [
     {
       "id": 1,
-      "title": "SaaS Development",
-      "slug": "saas-development",
-      "description": "Build scalable, secure, and user-friendly SaaS applications",
-      "longDescription": "We specialize in creating enterprise-grade SaaS platforms that grow with your business. From MVP to scale, we handle architecture, security, and performance.",
-      "icon": "cloud",
+      "title": "Multivendor and Ecommerce Solutions",
+      "slug": "multivendor-ecommerce-solutions",
+      "description": "Complete multivendor marketplace and ecommerce platforms",
+      "longDescription": "Build powerful multivendor marketplaces and ecommerce solutions with vendor management, commission systems, and advanced order processing.",
+      "icon": "shopping-cart",
       "features": [
-        "Cloud-native architecture",
-        "Multi-tenant systems",
-        "Subscription management",
-        "Real-time analytics",
-        "Advanced security"
+        "Multi-vendor marketplace",
+        "Vendor dashboard and management",
+        "Commission and payment splitting",
+        "Advanced order management",
+        "Product catalog management",
+        "Zone-wise shipping"
       ],
-      "technologies": ["Next.js", "PostgreSQL", "AWS", "Docker", "Kubernetes"],
-      "image": "/placeholder.svg?height=400&width=600"
+      "technologies": ["Laravel", "Vue.js", "MySQL", "Payment Gateway", "Inertia.js"],
+      "image": "/Images/E-commerce.jpg"
     },
     {
       "id": 2,
-      "title": "eCommerce Solutions",
-      "slug": "ecommerce-solutions",
-      "description": "High-performance online stores that convert visitors into customers",
-      "longDescription": "Custom eCommerce platforms built for conversion. Payment processing, inventory management, and seamless user experiences.",
-      "icon": "shopping-cart",
+      "title": "Learning Management Systems",
+      "slug": "learning-management-systems",
+      "description": "Comprehensive LMS platforms for education and training",
+      "longDescription": "Create feature-rich learning management systems with course creation, student tracking, assessments, and progress monitoring.",
+      "icon": "book",
       "features": [
-        "Payment integration",
-        "Inventory management",
-        "Multi-channel selling",
-        "Advanced analytics",
-        "Mobile optimization"
+        "Course creation and management",
+        "Student enrollment and tracking",
+        "Assessment and quiz system",
+        "Progress tracking and analytics",
+        "Video streaming integration",
+        "Certificate generation"
       ],
-      "technologies": ["Next.js", "React", "Stripe", "PostgreSQL", "Redis"],
+      "technologies": ["Laravel", "React", "MySQL", "Video Streaming", "PDF Generation"],
       "image": "/placeholder.svg?height=400&width=600"
     },
     {
       "id": 3,
+      "title": "Quiz Apps",
+      "slug": "quiz-apps",
+      "description": "Interactive quiz and assessment applications",
+      "longDescription": "Build engaging quiz applications with multiple question types, timer functionality, instant feedback, and detailed analytics.",
+      "icon": "clipboard",
+      "features": [
+        "Multiple question types",
+        "Timer and time limits",
+        "Instant results and feedback",
+        "Score calculation and ranking",
+        "Question bank management",
+        "Analytics and reporting"
+      ],
+      "technologies": ["React", "Node.js", "MongoDB", "Real-time Updates"],
+      "image": "/placeholder.svg?height=400&width=600"
+    },
+    {
+      "id": 4,
       "title": "Real-time Applications",
       "slug": "realtime-applications",
       "description": "Live collaboration tools and real-time data synchronization",
@@ -46,26 +66,100 @@
         "Live notifications",
         "Collaborative editing",
         "Real-time dashboards",
-        "Event streaming"
+        "Event streaming",
+        "Push notifications"
       ],
       "technologies": ["Node.js", "WebSocket", "Redis", "PostgreSQL", "Socket.io"],
       "image": "/placeholder.svg?height=400&width=600"
     },
     {
-      "id": 4,
-      "title": "Architecture Consulting",
-      "slug": "architecture-consulting",
-      "description": "Expert guidance on building scalable and maintainable systems",
-      "longDescription": "Strategic consultation for your technical architecture, helping you make informed decisions about technology stacks and system design.",
-      "icon": "layers",
+      "id": 5,
+      "title": "ERP",
+      "slug": "erp",
+      "description": "Enterprise Resource Planning systems",
+      "longDescription": "Comprehensive ERP solutions for managing business processes including finance, HR, inventory, and operations.",
+      "icon": "briefcase",
       "features": [
-        "System design",
-        "Technology selection",
-        "Scalability planning",
-        "Security audit",
-        "Performance optimization"
+        "Financial management",
+        "Human resource management",
+        "Inventory tracking",
+        "Supply chain management",
+        "Reporting and analytics",
+        "Multi-module integration"
       ],
-      "technologies": ["Microservices", "Cloud", "Containers", "DevOps", "Security"],
+      "technologies": ["Laravel", "Vue.js", "MySQL", "Reporting Tools", "API Integration"],
+      "image": "/Images/ERP.jpg"
+    },
+    {
+      "id": 6,
+      "title": "POS",
+      "slug": "pos",
+      "description": "Point of Sale systems for retail businesses",
+      "longDescription": "Modern POS systems with inventory management, payment processing, receipt printing, and sales reporting.",
+      "icon": "cash-register",
+      "features": [
+        "Sales transaction processing",
+        "Inventory management",
+        "Payment gateway integration",
+        "Receipt printing",
+        "Sales reporting and analytics",
+        "Multi-store support"
+      ],
+      "technologies": ["Laravel", "Vue.js", "MySQL", "Payment Gateway", "Hardware Integration"],
+      "image": "/placeholder.svg?height=400&width=600"
+    },
+    {
+      "id": 7,
+      "title": "Inventory",
+      "slug": "inventory",
+      "description": "Inventory management and tracking systems",
+      "longDescription": "Efficient inventory management solutions with stock tracking, automated reordering, and comprehensive reporting.",
+      "icon": "warehouse",
+      "features": [
+        "Stock tracking and monitoring",
+        "Automated reorder points",
+        "Multi-location support",
+        "Barcode scanning",
+        "Inventory reports",
+        "Supplier management"
+      ],
+      "technologies": ["Laravel", "React", "MySQL", "Barcode API", "Reporting"],
+      "image": "/placeholder.svg?height=400&width=600"
+    },
+    {
+      "id": 8,
+      "title": "Customer Web Applications",
+      "slug": "customer-web-applications",
+      "description": "Custom web applications tailored to your business needs",
+      "longDescription": "Build custom web applications designed specifically for your business requirements with modern technologies and best practices.",
+      "icon": "globe",
+      "features": [
+        "Custom functionality",
+        "Responsive design",
+        "User authentication",
+        "Database integration",
+        "API development",
+        "Third-party integrations"
+      ],
+      "technologies": ["Next.js", "React", "Laravel", "PostgreSQL", "REST APIs"],
+      "image": "/Images/banner.jpg"
+    },
+    {
+      "id": 9,
+      "title": "UI/UX and Product Design",
+      "slug": "ui-ux-product-design",
+      "description": "User interface design and user experience optimization",
+      "longDescription": "Create beautiful, intuitive user interfaces and optimize user experiences to drive engagement and conversions.",
+      "icon": "palette",
+      "features": [
+        "User interface design",
+        "User experience research",
+        "Wireframing and prototyping",
+        "Design systems",
+        "Usability testing",
+        "Responsive design"
+      ],
+      "technologies": ["Figma", "Adobe XD", "Sketch", "Prototyping Tools", "Design Systems"],
       "image": "/placeholder.svg?height=400&width=600"
     }
   ]
