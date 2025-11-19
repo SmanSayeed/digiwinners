@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Link, usePathname, useRouter } from '@/i18n/routing'
+import Image from 'next/image'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleDrawer } from '@/lib/slices/navigation-slice'
 import { openContactModal } from '@/lib/slices/contact-slice'
@@ -10,8 +11,95 @@ import { Menu, X, Moon, Sun, ChevronDown, Globe } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { motion, AnimatePresence } from 'framer-motion'
 import servicesData from '@/data/services.json'
+import caseStudiesData from '@/data/case-studies.json'
 import { Logo } from '@/components/logo'
 import { useLocale } from 'next-intl'
+
+// Case Studies Dropdown Component
+function CaseStudiesDropdown() {
+  const [caseStudiesOpen, setCaseStudiesOpen] = useState(false)
+  const caseStudies = caseStudiesData.caseStudies
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => setCaseStudiesOpen(true)}
+      onMouseLeave={() => setCaseStudiesOpen(false)}
+    >
+      <button
+        className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1 relative group"
+      >
+        Project Case Studies
+        <ChevronDown
+          className={`w-4 h-4 transition-transform duration-200 ${caseStudiesOpen ? 'rotate-180' : ''}`}
+        />
+        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full" />
+      </button>
+
+      <AnimatePresence>
+        {caseStudiesOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="absolute top-full left-0 mt-2 w-80 bg-popover border border-border rounded-lg shadow-lg overflow-hidden"
+          >
+            <div className="max-h-[400px] overflow-y-auto p-2 scrollbar-thin scrollbar-thumb-accent/20 scrollbar-track-transparent">
+              {caseStudies.map((caseStudy, idx) => (
+                <motion.div
+                  key={caseStudy.id}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.05 }}
+                >
+                  <Link
+                    href={`/case-studies/${caseStudy.slug}`}
+                    className="block p-3 rounded-md hover:bg-secondary transition-colors group"
+                    onClick={() => setCaseStudiesOpen(false)}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="relative w-16 h-12 rounded-md overflow-hidden flex-shrink-0 border border-border">
+                        <Image
+                          src={caseStudy.image}
+                          alt={caseStudy.title}
+                          fill
+                          className="object-cover group-hover:scale-110 transition-transform duration-300"
+                        />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-foreground group-hover:text-accent transition-colors text-sm">
+                          {caseStudy.title}
+                        </h4>
+                        <p className="text-xs text-muted-foreground mt-1">
+                          {caseStudy.category}
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: caseStudies.length * 0.05 }}
+                className="mt-2 pt-2 border-t border-border"
+              >
+                <Link
+                  href="/case-studies"
+                  className="block p-3 rounded-md hover:bg-secondary transition-colors text-center font-semibold text-accent"
+                  onClick={() => setCaseStudiesOpen(false)}
+                >
+                  View All Projects →
+                </Link>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
 
 export function Header() {
   const dispatch = useDispatch()
@@ -20,6 +108,7 @@ export function Header() {
   const [mounted, setMounted] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
+  const [mobileCaseStudiesOpen, setMobileCaseStudiesOpen] = useState(false)
   const locale = useLocale()
   const router = useRouter()
   const pathname = usePathname()
@@ -31,7 +120,6 @@ export function Header() {
   const navigationItems = [
     { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },
-    { label: 'Case Studies', href: '/case-studies' },
   ]
 
   const services = servicesData.services
@@ -49,16 +137,21 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
-            {navigationItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
-              >
-                {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full" />
-              </Link>
-            ))}
+            {navigationItems.map((item) => {
+              if (item.label === 'Case Studies') {
+                return null; // We'll handle this separately with dropdown
+              }
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
+                >
+                  {item.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full" />
+                </Link>
+              )
+            })}
 
             {/* Services Dropdown */}
             <div
@@ -86,7 +179,7 @@ export function Header() {
                     transition={{ duration: 0.2 }}
                     className="absolute top-full left-0 mt-2 w-80 bg-popover border border-border rounded-lg shadow-lg overflow-hidden"
                   >
-                    <div className="p-2">
+                    <div className="max-h-[400px] overflow-y-auto p-2 scrollbar-thin scrollbar-thumb-accent/20 scrollbar-track-transparent">
                       {services.map((service, idx) => (
                         <motion.div
                           key={service.id}
@@ -95,7 +188,7 @@ export function Header() {
                           transition={{ delay: idx * 0.05 }}
                         >
                           <Link
-                            href={`/services#${service.slug}`}
+                            href={`/services/${service.slug}`}
                             className="block p-3 rounded-md hover:bg-secondary transition-colors group"
                             onClick={() => setServicesOpen(false)}
                           >
@@ -144,6 +237,9 @@ export function Header() {
                 )}
               </AnimatePresence>
             </div>
+
+            {/* Case Studies Dropdown */}
+            <CaseStudiesDropdown />
 
             <button
               onClick={() => dispatch(openContactModal())}
@@ -265,11 +361,11 @@ export function Header() {
                         transition={{ duration: 0.2 }}
                         className="overflow-hidden"
                       >
-                        <div className="pl-4 pt-2 space-y-2">
+                        <div className="max-h-[300px] overflow-y-auto scrollbar-thin scrollbar-thumb-accent/20 scrollbar-track-transparent">
                           {services.map((service) => (
                             <Link
                               key={service.id}
-                              href={`/services#${service.slug}`}
+                              href={`/services/${service.slug}`}
                               onClick={() => {
                                 setMobileServicesOpen(false)
                                 dispatch(toggleDrawer())
@@ -299,15 +395,87 @@ export function Header() {
                               </div>
                             </Link>
                           ))}
+                        </div>
+                        <Link
+                          href="/services"
+                          onClick={() => {
+                            setMobileServicesOpen(false)
+                            dispatch(toggleDrawer())
+                          }}
+                          className="block py-2 px-4 rounded-lg hover:bg-secondary transition-colors font-semibold text-accent text-sm mt-2"
+                        >
+                          View All Services →
+                        </Link>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+
+                {/* Mobile Case Studies Dropdown */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: (navigationItems.length + 1) * 0.1 }}
+                >
+                  <button
+                    onClick={() => setMobileCaseStudiesOpen(!mobileCaseStudiesOpen)}
+                    className="w-full flex items-center justify-between text-foreground hover:text-accent transition-colors py-3 px-4 rounded-lg hover:bg-secondary font-medium"
+                  >
+                    <span>Project Case Studies</span>
+                    <ChevronDown
+                      className={`w-5 h-5 transition-transform duration-200 ${mobileCaseStudiesOpen ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+
+                  <AnimatePresence>
+                    {mobileCaseStudiesOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pl-4 pt-2 space-y-2">
+                          <div className="max-h-[300px] overflow-y-auto scrollbar-thin scrollbar-thumb-accent/20 scrollbar-track-transparent">
+                            {caseStudiesData.caseStudies.map((caseStudy) => (
+                              <Link
+                                key={caseStudy.id}
+                                href={`/case-studies/${caseStudy.slug}`}
+                                onClick={() => {
+                                  setMobileCaseStudiesOpen(false)
+                                  dispatch(toggleDrawer())
+                                }}
+                                className="block py-2 px-4 rounded-lg hover:bg-secondary transition-colors"
+                              >
+                                <div className="flex items-center gap-3">
+                                  <div className="relative w-16 h-12 rounded-md overflow-hidden flex-shrink-0 border border-border">
+                                    <Image
+                                      src={caseStudy.image}
+                                      alt={caseStudy.title}
+                                      fill
+                                      className="object-cover"
+                                    />
+                                  </div>
+                                  <div>
+                                    <div className="font-medium text-sm">{caseStudy.title}</div>
+                                    <div className="text-xs text-muted-foreground">
+                                      {caseStudy.category}
+                                    </div>
+                                  </div>
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
                           <Link
-                            href="/services"
+                            href="/case-studies"
                             onClick={() => {
-                              setMobileServicesOpen(false)
+                              setMobileCaseStudiesOpen(false)
                               dispatch(toggleDrawer())
                             }}
-                            className="block py-2 px-4 rounded-lg hover:bg-secondary transition-colors font-semibold text-accent text-sm"
+                            className="block py-2 px-4 rounded-lg hover:bg-secondary transition-colors font-semibold text-accent text-sm mt-2"
                           >
-                            View All Services →
+                            View All Projects →
                           </Link>
                         </div>
                       </motion.div>
@@ -326,8 +494,9 @@ export function Header() {
               onClick={() => dispatch(toggleDrawer())}
             />
           </>
-        )}
-      </AnimatePresence>
+        )
+        }
+      </AnimatePresence >
     </>
   )
 }
