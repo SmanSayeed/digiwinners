@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { openContactModal } from '@/lib/slices/contact-slice'
 import { motion } from 'framer-motion'
 import HeroScene from '@/components/3d/HeroScene'
-import { ArrowRight, ChevronDown } from 'lucide-react'
+import { ArrowRight, ChevronDown, Rocket } from 'lucide-react'
 import { Link } from '@/i18n/routing'
 
 // Animated SVG Shapes Component
@@ -16,7 +16,7 @@ function FloatingShapes() {
         { type: 'triangle', color: '#8B5CF6', size: 55, x: '15%', y: '70%', delay: 0.4 },
         { type: 'circle', color: '#06B6D4', size: 45, x: '90%', y: '65%', delay: 0.6 },
         { type: 'hexagon', color: '#F59E0B', size: 50, x: '5%', y: '45%', delay: 0.8 },
-        { type: 'star', color: '#10B981', size: 48, x: '92%', y: '40%', delay: 1 },
+        { type: 'rocket', color: '#10B981', size: 48, x: '92%', y: '40%', delay: 1 },
         { type: 'diamond', color: '#EF4444', size: 52, x: '8%', y: '85%', delay: 1.2 },
         { type: 'pentagon', color: '#A855F7', size: 46, x: '88%', y: '85%', delay: 1.4 },
     ]
@@ -62,10 +62,15 @@ function FloatingShapes() {
                             <polygon points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" fill={shape.color} opacity="0.6" />
                         </svg>
                     )}
-                    {shape.type === 'star' && (
-                        <svg width={shape.size} height={shape.size} viewBox="0 0 100 100">
-                            <polygon points="50,10 61,40 92,40 67,60 78,90 50,70 22,90 33,60 8,40 39,40" fill={shape.color} opacity="0.6" />
-                        </svg>
+                    {shape.type === 'rocket' && (
+                        <Rocket
+                            width={shape.size}
+                            height={shape.size}
+                            color={shape.color}
+                            fill={shape.color}
+                            fillOpacity={0.6}
+                            strokeWidth={1.5}
+                        />
                     )}
                     {shape.type === 'diamond' && (
                         <svg width={shape.size} height={shape.size} viewBox="0 0 100 100">
