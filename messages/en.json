@@ -31,6 +31,29 @@
             "submit": "Send Message"
         }
     },
+    "HowWeWork": {
+        "title": "How We Work",
+        "subtitle": "Our proven process ensures quality delivery from concept to maintenance",
+        "idea": "Idea & Discovery",
+        "ideaDesc": "We start by understanding your vision, goals, and requirements through detailed discussions",
+        "planning": "Strategic Planning",
+        "planningDesc": "Creating a comprehensive roadmap with timelines, milestones, and resource allocation",
+        "design": "UI/UX Design",
+        "designDesc": "Crafting beautiful, intuitive interfaces that delight users and drive engagement",
+        "development": "Development",
+        "developmentDesc": "Building robust, scalable solutions using cutting-edge technologies and best practices",
+        "dailyMeeting": "Daily Sync",
+        "dailyMeetingDesc": "Regular check-ins to ensure alignment, address concerns, and maintain momentum",
+        "testing": "Quality Testing",
+        "testingDesc": "Rigorous testing across devices and scenarios to ensure flawless performance",
+        "deployment": "Deployment",
+        "deploymentDesc": "Seamless launch to production with zero downtime and optimized performance",
+        "uat": "User Acceptance",
+        "uatDesc": "Collaborative testing with your team to ensure everything meets expectations",
+        "maintenance": "Maintenance & Support",
+        "maintenanceDesc": "Ongoing support, updates, and improvements to keep your solution running smoothly",
+        "cta": "Ready to start your project with our proven process?"
+    },
     "Footer": {
         "company": "Company",
         "services": "Services",
