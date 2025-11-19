@@ -5,9 +5,7 @@ import { Footer } from '@/components/navigation/footer'
 import { FloatingWhatsApp } from '@/components/floating-whatsapp'
 import { ContactModal } from '@/components/contact-modal'
 import { ScrollAnimation } from '@/components/scroll-animation'
-import teamData from '@/data/team.json'
 import { motion } from 'framer-motion'
-import { FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa'
 
 export default function AboutPage() {
   return (
@@ -54,7 +52,7 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Transforming businesses through innovative digital solutions since 2009
+              Transforming businesses through innovative digital solutions with years of expertise
             </motion.p>
           </div>
         </ScrollAnimation>
@@ -67,13 +65,13 @@ export default function AboutPage() {
             <div>
               <h2 className="text-4xl font-bold mb-6">Our Story</h2>
               <p className="text-lg text-muted-foreground mb-4">
-                Founded in 2009, Digiwinners began as a small team of passionate developers with a mission to revolutionize digital transformation.
+                Our journey began in 2016 when our team lead started working in the IT industry with a vision to create exceptional digital solutions. Through years of dedication, learning, and delivering successful projects, the foundation was laid for what would become Digiwinners.
               </p>
               <p className="text-lg text-muted-foreground mb-4">
-                Today, we're a 45+ person team of engineers, designers, and strategists working with Fortune 500 companies and innovative startups worldwide.
+                After years of experience and building strong client relationships, Digiwinners was officially shaped as a company dedicated to transforming businesses through innovative technology solutions. We combine deep technical expertise with a client-first approach.
               </p>
               <p className="text-lg text-muted-foreground">
-                Our commitment to excellence, innovation, and customer success has made us a trusted partner for digital transformation.
+                Today, we're a growing team of skilled engineers, designers, and strategists working with businesses of all sizes to bring their digital visions to life. Our commitment to excellence, innovation, and customer success drives everything we do.
               </p>
             </div>
           </ScrollAnimation>
@@ -97,7 +95,7 @@ export default function AboutPage() {
                 }}
                 transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
               />
-              
+
               {/* Floating icon */}
               <motion.div
                 className="absolute inset-0 flex items-center justify-center"
@@ -134,52 +132,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-20 px-4 md:px-8 bg-secondary">
-        <div className="max-w-7xl mx-auto">
-          <ScrollAnimation>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-4">Our Leadership</h2>
-              <p className="text-lg text-muted-foreground">
-                Led by industry veterans with decades of experience
-              </p>
-            </div>
-          </ScrollAnimation>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {teamData.team.map((member, idx) => (
-              <ScrollAnimation key={member.id} variant="fadeUp" delay={idx * 0.1}>
-                <motion.div
-                  className="bg-background rounded-xl border border-border p-6 text-center"
-                  whileHover={{ y: -5 }}
-                >
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-accent/20 flex items-center justify-center">
-                    <img
-                      src={member.image || "/placeholder.svg"}
-                      alt={member.name}
-                      className="w-full h-full object-cover rounded-full"
-                    />
-                  </div>
-                  <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                  <p className="text-accent font-semibold mb-3">{member.role}</p>
-                  <p className="text-muted-foreground text-sm mb-4">{member.bio}</p>
-                  <div className="flex gap-3 justify-center">
-                    <a href={member.social.twitter} target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-secondary rounded-lg transition-colors">
-                      <FaTwitter className="w-5 h-5" />
-                    </a>
-                    <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-secondary rounded-lg transition-colors">
-                      <FaLinkedin className="w-5 h-5" />
-                    </a>
-                    <a href={member.social.github} target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-secondary rounded-lg transition-colors">
-                      <FaGithub className="w-5 h-5" />
-                    </a>
-                  </div>
-                </motion.div>
-              </ScrollAnimation>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Values Section */}
       <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto">

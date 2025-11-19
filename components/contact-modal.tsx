@@ -1,152 +1,150 @@
 'use client'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { closeContactModal, updateContactData, resetContactData } from '@/lib/slices/contact-slice'
+import { closeContactModal } from '@/lib/slices/contact-slice'
 import { RootState } from '@/lib/store'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X } from 'lucide-react'
+import { X, Phone, Mail, Facebook, MessageCircle, Send } from 'lucide-react'
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
+
+import servicesData from '@/data/services.json'
+import { Link } from '@/i18n/routing'
 
 export function ContactModal() {
   const dispatch = useDispatch()
   const isOpen = useSelector((state: RootState) => state.contact.isModalOpen)
-  const contactData = useSelector((state: RootState) => state.contact.contactData)
-  const [submitted, setSubmitted] = useState(false)
+  const t = useTranslations('Contact')
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    dispatch(updateContactData({ [name]: value }))
+  const handleClose = () => {
+    dispatch(closeContactModal())
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    // Simulate form submission
-    setSubmitted(true)
-    setTimeout(() => {
-      dispatch(resetContactData())
-      dispatch(closeContactModal())
-      setSubmitted(false)
-    }, 2000)
-  }
+  const services = servicesData.services
 
   return (
     <AnimatePresence>
       {isOpen && (
-        <>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6">
           <motion.div
-            className="fixed inset-0 bg-black/50 z-40"
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => dispatch(closeContactModal())}
+            onClick={handleClose}
           />
           <motion.div
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-md bg-background rounded-lg shadow-lg border border-border"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            transition={{ duration: 0.3 }}
+            className="relative w-full max-w-5xl bg-background rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[90vh] z-10"
+            onClick={(e) => e.stopPropagation()}
           >
-            <div className="p-6">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold">Get in Touch</h2>
-                <button
-                  onClick={() => dispatch(closeContactModal())}
-                  className="p-1 hover:bg-secondary rounded transition-colors"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
+            {/* Close Button */}
+            <button
+              onClick={handleClose}
+              className="absolute top-4 right-4 z-10 p-2 bg-background/80 backdrop-blur-sm rounded-full hover:bg-accent/10 transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
 
-              {submitted ? (
-                <motion.div
-                  className="text-center py-8"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                >
+            {/* Left Side - Contact Info */}
+            <div className="w-full md:w-2/5 bg-secondary p-8 md:p-12 flex flex-col justify-between overflow-y-auto">
+              <div>
+                <h2 className="text-3xl font-bold mb-6">{t('title')}</h2>
+                <p className="text-muted-foreground mb-8">
+                  {t('subtitle')}
+                </p>
+
+                <div className="space-y-6">
+                  <a href="tel:+8801843932169" className="flex items-center gap-4 text-foreground hover:text-accent transition-colors group">
+                    <div className="w-12 h-12 bg-background rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Phone className="w-5 h-5 text-accent" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">Call Us</p>
+                      <p className="font-semibold">+880 1843-932169</p>
+                    </div>
+                  </a>
+
+                  <a href="https://wa.me/8801843932169" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-foreground hover:text-accent transition-colors group">
+                    <div className="w-12 h-12 bg-background rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <MessageCircle className="w-5 h-5 text-accent" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">WhatsApp</p>
+                      <p className="font-semibold">+880 1843-932169</p>
+                    </div>
+                  </a>
+
+                  <a href="mailto:hello@digiwinners.com" className="flex items-center gap-4 text-foreground hover:text-accent transition-colors group">
+                    <div className="w-12 h-12 bg-background rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Mail className="w-5 h-5 text-accent" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">Email Us</p>
+                      <p className="font-semibold">hello@digiwinners.com</p>
+                    </div>
+                  </a>
+
+                  <a href="https://facebook.com/digiwinners" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-foreground hover:text-accent transition-colors group">
+                    <div className="w-12 h-12 bg-background rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Facebook className="w-5 h-5 text-accent" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">Follow Us</p>
+                      <p className="font-semibold">Digiwinners</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side - Services List */}
+            <div className="w-full md:w-3/5 p-8 md:p-12 bg-background overflow-y-auto">
+              <h3 className="text-2xl font-bold mb-6">Our Services</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {services.map((service, index) => (
                   <motion.div
-                    className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4"
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{ duration: 1, repeat: 2 }}
+                    key={service.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
                   >
-                    <span className="text-2xl">✓</span>
-                  </motion.div>
-                  <p className="text-foreground font-semibold">Thank you!</p>
-                  <p className="text-muted-foreground">We'll get back to you soon.</p>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Name</label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={contactData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 bg-secondary rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-accent"
-                      placeholder="Your name"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Email</label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={contactData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 bg-secondary rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-accent"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Company</label>
-                    <input
-                      type="text"
-                      name="company"
-                      value={contactData.company}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2 bg-secondary rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-accent"
-                      placeholder="Your company"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Budget Range</label>
-                    <select
-                      name="budget"
-                      value={contactData.budget}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2 bg-secondary rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-accent"
+                    <Link
+                      href={`/services/${service.slug}`}
+                      onClick={handleClose}
+                      className="flex items-start gap-3 p-4 rounded-xl hover:bg-secondary transition-colors group h-full border border-border hover:border-accent/50"
                     >
-                      <option value="">Select budget range</option>
-                      <option value="<10k">{'< $10,000'}</option>
-                      <option value="10k-50k">$10,000 - $50,000</option>
-                      <option value="50k-100k">$50,000 - $100,000</option>
-                      <option value=">100k">{'>$100,000'}</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Message</label>
-                    <textarea
-                      name="message"
-                      value={contactData.message}
-                      onChange={handleChange}
-                      rows={4}
-                      className="w-full px-4 py-2 bg-secondary rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-accent resize-none"
-                      placeholder="Tell us about your project..."
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full py-2 bg-accent text-accent-foreground rounded-lg font-semibold hover:opacity-90 transition-opacity"
-                  >
-                    Send Message
-                  </button>
-                </form>
-              )}
+                      <div className="text-2xl mt-1 group-hover:scale-110 transition-transform">
+                        {service.icon === 'cloud' ? '☁️' :
+                          service.icon === 'shopping-cart' ? '🛒' :
+                            service.icon === 'zap' ? '⚡' :
+                              service.icon === 'layers' ? '🏗️' :
+                                service.icon === 'book' ? '📚' :
+                                  service.icon === 'clipboard' ? '📋' :
+                                    service.icon === 'briefcase' ? '💼' :
+                                      service.icon === 'cash-register' ? '💰' :
+                                        service.icon === 'warehouse' ? '📦' :
+                                          service.icon === 'globe' ? '🌐' :
+                                            service.icon === 'palette' ? '🎨' : '🚀'}
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground group-hover:text-accent transition-colors">
+                          {service.title}
+                        </h4>
+                        <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
+                          {service.description}
+                        </p>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
-        </>
+        </div>
       )}
     </AnimatePresence>
   )

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { FaWhatsapp } from 'react-icons/fa'
 
 export function FloatingWhatsApp() {
-  const whatsappNumber = '+8801843032160'
+  const whatsappNumber = '+8801843932169'
   const message = 'Hello! I would like to know more about your services.'
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
 

@@ -1,10 +1,14 @@
 'use client'
 
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import { FaTwitter, FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa'
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
+import { Logo } from '@/components/logo'
 
 export function Footer() {
+  const t = useTranslations('Footer')
+
   const socialLinks = [
     { icon: FaTwitter, url: 'https://twitter.com', label: 'Twitter' },
     { icon: FaLinkedin, url: 'https://linkedin.com', label: 'LinkedIn' },
@@ -13,11 +17,11 @@ export function Footer() {
   ]
 
   const footerLinks = [
-    { label: 'About', href: '/about' },
-    { label: 'Services', href: '/services' },
-    { label: 'Case Studies', href: '/case-studies' },
-    { label: 'Contact', href: '/contact' },
-    { label: 'Privacy', href: '/privacy' },
+    { label: t('about'), href: '/about' },
+    { label: t('services'), href: '/services' },
+    { label: t('caseStudies'), href: '/case-studies' },
+    { label: t('contact'), href: '/contact' },
+    { label: t('privacy'), href: '/privacy' },
   ]
 
   return (
@@ -26,12 +30,9 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <motion.div
-              className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center font-bold text-primary mb-4"
-              whileHover={{ scale: 1.05 }}
-            >
-              DW
-            </motion.div>
+            <div className="mb-4">
+              <Logo />
+            </div>
             <p className="text-sm text-muted-foreground">
               Premium IT solutions and digital transformation
             </p>
@@ -39,7 +40,7 @@ export function Footer() {
 
           {/* Links */}
           <div>
-            <h3 className="font-semibold mb-4">Company</h3>
+            <h3 className="font-semibold mb-4">{t('company')}</h3>
             <nav className="flex flex-col gap-2">
               {footerLinks.map((link) => (
                 <Link
@@ -55,7 +56,7 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="font-semibold mb-4">Services</h3>
+            <h3 className="font-semibold mb-4">{t('services')}</h3>
             <nav className="flex flex-col gap-2">
               {['SaaS Development', 'eCommerce', 'Real-time Apps', 'Consulting'].map((service) => (
                 <Link
@@ -71,7 +72,7 @@ export function Footer() {
 
           {/* Social */}
           <div>
-            <h3 className="font-semibold mb-4">Follow Us</h3>
+            <h3 className="font-semibold mb-4">{t('followUs')}</h3>
             <div className="flex gap-3">
               {socialLinks.map((social, idx) => (
                 <motion.a
@@ -93,13 +94,13 @@ export function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-          <p>&copy; 2025 Digiwinners. All rights reserved.</p>
+          <p>&copy; 2025 Digiwinners. {t('rights')}</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-foreground transition-colors">
-              Privacy Policy
+              {t('privacy')}
             </Link>
             <Link href="/terms" className="hover:text-foreground transition-colors">
-              Terms of Service
+              {t('terms')}
             </Link>
           </div>
         </div>

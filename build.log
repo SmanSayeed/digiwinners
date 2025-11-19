@@ -1,0 +1,47 @@
+
+> my-v0-project@0.1.0 build L:\projects\digiwinners\digiwinners
+> next build
+
+   Γû▓ Next.js 16.0.3 (Turbopack)
+   - Environments: .env
+
+ ΓÜá The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+   Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 1 errors:
+./app/[locale]/case-studies/[slug]/page.tsx:22:8
+Next.js can't recognize the exported `generateStaticParams` field in route. App pages cannot use both "use client" and export function "generateStaticParams()".
+  20 | }
+  21 |
+> 22 | export function generateStaticParams() {
+     |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 23 |   return caseStudiesData.caseStudies.map((study) => ({
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 24 |     slug: study.slug,
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |   }))
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 26 | }
+     | ^^
+  27 |
+  28 | export default function CaseStudyDetailPage() {
+  29 |   const params = useParams()
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+Import traces:
+  Client Component Browser:
+    ./app/[locale]/case-studies/[slug]/page.tsx [Client Component Browser]
+    ./app/[locale]/case-studies/[slug]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/[locale]/case-studies/[slug]/page.tsx [Client Component SSR]
+    ./app/[locale]/case-studies/[slug]/page.tsx [Server Component]
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+    at <unknown> (./app/[locale]/case-studies/[slug]/page.tsx:22:8)
+    at <unknown> (https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config)
+ΓÇëELIFECYCLEΓÇë Command failed with exit code 1.

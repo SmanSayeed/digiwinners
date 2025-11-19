@@ -64,55 +64,45 @@ export default function CaseStudiesPage() {
       <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {caseStudiesData.caseStudies.map((study, idx) => (
-            <ScrollAnimation key={study.id} variant="fadeUp" delay={idx * 0.1}>
-              <motion.div
-                className="bg-secondary rounded-xl overflow-hidden border border-border hover:border-accent transition-all group cursor-pointer"
-                whileHover={{ y: -5 }}
-              >
-                <div className="h-48 bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center overflow-hidden">
-                  <img
-                    src={study.image || "/placeholder.svg"}
-                    alt={study.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-6">
-                  {study.client && (
-                    <p className="text-sm text-accent mb-2">{study.client}</p>
-                  )}
-                  <h3 className="text-xl font-bold mb-2">{study.title}</h3>
-                  {study.summary && (
-                    <p className="text-muted-foreground text-sm mb-6">{study.summary}</p>
-                  )}
-                  
-                  {study.results && Object.keys(study.results).length > 0 && (
-                    <div className="mb-6 space-y-2">
-                      {Object.entries(study.results).map(([key, value]) => (
-                        <div key={key} className="flex justify-between text-sm">
-                          <span className="text-muted-foreground capitalize">{key}:</span>
-                          <span className="font-semibold text-accent">{value}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
+            <motion.div
+              key={study.id}
+              className="bg-secondary rounded-xl overflow-hidden border border-border hover:border-accent transition-all group cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              whileHover={{ y: -5 }}
+            >
+              <div className="h-80 bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center overflow-hidden">
+                <img
+                  src={study.image || "/placeholder.svg"}
+                  alt={study.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-4">{study.title}</h3>
 
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {study.technologies.slice(0, 3).map((tech, i) => (
-                      <span key={i} className="text-xs bg-primary/10 text-accent px-2 py-1 rounded">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <Link
-                    href={`/case-studies/${study.slug}`}
-                    className="inline-block px-4 py-2 bg-accent text-accent-foreground rounded-lg font-semibold text-sm hover:opacity-90 transition-opacity"
-                  >
-                    View Case Study
-                  </Link>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {study.technologies.slice(0, 4).map((tech, i) => (
+                    <span key={i} className="text-xs bg-primary/10 text-accent px-2 py-1 rounded">
+                      {tech}
+                    </span>
+                  ))}
+                  {study.technologies.length > 4 && (
+                    <span className="text-xs bg-primary/10 text-accent px-2 py-1 rounded">
+                      +{study.technologies.length - 4}
+                    </span>
+                  )}
                 </div>
-              </motion.div>
-            </ScrollAnimation>
+
+                <Link
+                  href={`/case-studies/${study.slug}`}
+                  className="inline-block px-4 py-2 bg-accent text-accent-foreground rounded-lg font-semibold text-sm hover:opacity-90 transition-opacity"
+                >
+                  View Case Study
+                </Link>
+              </div>
+            </motion.div>
           ))}
         </div>
       </section>

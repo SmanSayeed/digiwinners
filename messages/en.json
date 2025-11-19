@@ -1,0 +1,45 @@
+{
+    "HomePage": {
+        "title": "Digiwinners",
+        "subtitle": "Premium Web & App Solutions That Skyrocket Your Business Growth by 3x Faster",
+        "getBudget": "Get Project Budget Idea",
+        "hireUs": "Hire Us",
+        "discuss": "Let's Discuss Your Project"
+    },
+    "Services": {
+        "title": "Our Services",
+        "webDev": "Web Development",
+        "appDev": "App Development",
+        "desktopApp": "Desktop App Development",
+        "ecommerce": "E-commerce Solutions",
+        "saas": "SaaS MVP",
+        "cloud": "Cloud Services"
+    },
+    "Contact": {
+        "title": "Contact Us",
+        "subtitle": "We are always ready to help you. Reach out to us through any of the following channels.",
+        "phone": "Phone",
+        "email": "Email",
+        "whatsapp": "WhatsApp",
+        "facebook": "Facebook",
+        "form": {
+            "name": "Name",
+            "email": "Email",
+            "company": "Company",
+            "budget": "Budget",
+            "message": "Message",
+            "submit": "Send Message"
+        }
+    },
+    "Footer": {
+        "company": "Company",
+        "services": "Services",
+        "followUs": "Follow Us",
+        "rights": "All rights reserved.",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "about": "About",
+        "caseStudies": "Case Studies",
+        "contact": "Contact"
+    }
+}

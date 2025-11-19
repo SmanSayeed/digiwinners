@@ -4,6 +4,7 @@
       "id": 1,
       "title": "StepStyle BD - Shoe E-commerce Platform",
       "slug": "stepstylebd-shoe-ecommerce",
+      "category": "Web Development",
       "client": "StepStyle BD",
       "description": "Modern shoe e-commerce platform with advanced features",
       "summary": "Built a comprehensive e-commerce platform for shoe retail with Laravel and Inertia.js, featuring advanced payment management, zone-wise shipping, and real-time notifications.",
@@ -13,7 +14,14 @@
         "customer satisfaction": "95%",
         "mobile orders": "70%"
       },
-      "technologies": ["Laravel", "Inertia.js", "MySQL", "Vue.js", "Payment Gateway", "Notification System"],
+      "technologies": [
+        "Laravel",
+        "Inertia.js",
+        "MySQL",
+        "Vue.js",
+        "Payment Gateway",
+        "Notification System"
+      ],
       "image": "/Images/projects/stepstylebd/shoe.png",
       "gallery": [
         {
@@ -56,6 +64,7 @@
       "id": 2,
       "title": "NurBuy - Portfolio & Project Marketplace",
       "slug": "nurbuy-portfolio-marketplace",
+      "category": "Web Development",
       "client": "NurBuy",
       "description": "Portfolio website with free and paid projects section",
       "summary": "Developed a portfolio marketplace platform with flexible storage options, allowing users to showcase free and paid projects with AWS S3 or server storage choice.",
@@ -65,7 +74,14 @@
         "storage efficiency": "40% cost reduction",
         "user retention": "88%"
       },
-      "technologies": ["Laravel", "AWS S3", "MySQL", "Vue.js", "Payment Integration", "File Management"],
+      "technologies": [
+        "Laravel",
+        "AWS S3",
+        "MySQL",
+        "Vue.js",
+        "Payment Integration",
+        "File Management"
+      ],
       "image": "/Images/projects/nurbuy/nurbuy.png",
       "gallery": [
         {
@@ -93,6 +109,7 @@
       "id": 3,
       "title": "HRM System - Human Resource Management",
       "slug": "hrm-human-resource-management",
+      "category": "Web Development",
       "client": "Enterprise Client",
       "description": "Comprehensive HRM system for employee management",
       "summary": "Built a full-featured Human Resource Management system with employee tracking, payroll management, attendance monitoring, and performance evaluation.",
@@ -102,7 +119,14 @@
         "employee satisfaction": "92%",
         "data accuracy": "99%"
       },
-      "technologies": ["Laravel", "MySQL", "Vue.js", "Chart.js", "PDF Generation", "Email System"],
+      "technologies": [
+        "Laravel",
+        "MySQL",
+        "Vue.js",
+        "Chart.js",
+        "PDF Generation",
+        "Email System"
+      ],
       "image": "/Images/projects/hrm/hrm-1.webp",
       "gallery": [
         {
@@ -140,6 +164,7 @@
       "id": 4,
       "title": "LP GeoBot - Location Intelligence Platform",
       "slug": "lpgeobot-location-intelligence",
+      "category": "Web Development",
       "client": "LP GeoBot",
       "description": "Geographic data and location intelligence platform",
       "summary": "Developed an advanced location intelligence platform with geographic data visualization, mapping capabilities, and location-based analytics.",
@@ -149,7 +174,14 @@
         "user adoption": "85%",
         "efficiency": "250%"
       },
-      "technologies": ["React", "Node.js", "PostgreSQL", "Map APIs", "Geolocation", "Data Visualization"],
+      "technologies": [
+        "React",
+        "Node.js",
+        "PostgreSQL",
+        "Map APIs",
+        "Geolocation",
+        "Data Visualization"
+      ],
       "image": "/Images/projects/lpgeobot/lp-geobot.webp",
       "gallery": [
         {
@@ -172,6 +204,7 @@
       "id": 5,
       "title": "Study Abroad Consultancy - Student Management System",
       "slug": "study-abroad-consultancy",
+      "category": "Web Development",
       "client": "Study Abroad Consultancy",
       "description": "Comprehensive student management system for consultancy",
       "summary": "Created a complete student management system for study abroad consultancy with application tracking, follow-up management, and notification system.",
@@ -181,7 +214,14 @@
         "follow-up efficiency": "200%",
         "system adoption": "100%"
       },
-      "technologies": ["Laravel", "MySQL", "Vue.js", "Notification System", "PDF Generation", "Email Integration"],
+      "technologies": [
+        "Laravel",
+        "MySQL",
+        "Vue.js",
+        "Notification System",
+        "PDF Generation",
+        "Email Integration"
+      ],
       "image": "/Images/projects/study-abroad-consultancy/study-abroad-dashboard.png",
       "gallery": [
         {
@@ -229,6 +269,7 @@
       "id": 6,
       "title": "Import Management System",
       "slug": "import-management-system",
+      "category": "Web Development",
       "client": "Import Business Client",
       "description": "Complete import business management solution",
       "summary": "Developed a comprehensive import management system for tracking shipments, managing inventory, handling customs, and processing payments.",
@@ -238,7 +279,14 @@
         "cost efficiency": "30%",
         "customer satisfaction": "96%"
       },
-      "technologies": ["Laravel", "MySQL", "Vue.js", "Inventory Management", "Payment Processing", "Reporting"],
+      "technologies": [
+        "Laravel",
+        "MySQL",
+        "Vue.js",
+        "Inventory Management",
+        "Payment Processing",
+        "Reporting"
+      ],
       "image": "/Images/projects/import/import.webp",
       "gallery": [
         {

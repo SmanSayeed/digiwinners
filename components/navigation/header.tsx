@@ -1,15 +1,17 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
+import { Link, usePathname, useRouter } from '@/i18n/routing'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleDrawer } from '@/lib/slices/navigation-slice'
+import { openContactModal } from '@/lib/slices/contact-slice'
 import { RootState } from '@/lib/store'
-import { Menu, X, Moon, Sun, ChevronDown } from 'lucide-react'
+import { Menu, X, Moon, Sun, ChevronDown, Globe } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { motion, AnimatePresence } from 'framer-motion'
 import servicesData from '@/data/services.json'
 import { Logo } from '@/components/logo'
+import { useLocale } from 'next-intl'
 
 export function Header() {
   const dispatch = useDispatch()
@@ -18,6 +20,9 @@ export function Header() {
   const [mounted, setMounted] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
+  const locale = useLocale()
+  const router = useRouter()
+  const pathname = usePathname()
 
   useEffect(() => {
     setMounted(true)
@@ -27,10 +32,13 @@ export function Header() {
     { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },
     { label: 'Case Studies', href: '/case-studies' },
-    { label: 'Contact', href: '/contact' },
   ]
 
   const services = servicesData.services
+
+  const switchLocale = (newLocale: string) => {
+    router.replace(pathname, { locale: newLocale })
+  }
 
   return (
     <>
@@ -51,7 +59,7 @@ export function Header() {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full" />
               </Link>
             ))}
-            
+
             {/* Services Dropdown */}
             <div
               className="relative"
@@ -63,9 +71,8 @@ export function Header() {
               >
                 Services
                 <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 ${
-                    servicesOpen ? 'rotate-180' : ''
-                  }`}
+                  className={`w-4 h-4 transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''
+                    }`}
                 />
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full" />
               </button>
@@ -94,17 +101,17 @@ export function Header() {
                           >
                             <div className="flex items-start gap-3">
                               <div className="text-2xl mt-1">
-                                {service.icon === 'cloud' ? '☁️' : 
-                                 service.icon === 'shopping-cart' ? '🛒' : 
-                                 service.icon === 'zap' ? '⚡' : 
-                                 service.icon === 'layers' ? '🏗️' :
-                                 service.icon === 'book' ? '📚' :
-                                 service.icon === 'clipboard' ? '📋' :
-                                 service.icon === 'briefcase' ? '💼' :
-                                 service.icon === 'cash-register' ? '💰' :
-                                 service.icon === 'warehouse' ? '📦' :
-                                 service.icon === 'globe' ? '🌐' :
-                                 service.icon === 'palette' ? '🎨' : '🚀'}
+                                {service.icon === 'cloud' ? '☁️' :
+                                  service.icon === 'shopping-cart' ? '🛒' :
+                                    service.icon === 'zap' ? '⚡' :
+                                      service.icon === 'layers' ? '🏗️' :
+                                        service.icon === 'book' ? '📚' :
+                                          service.icon === 'clipboard' ? '📋' :
+                                            service.icon === 'briefcase' ? '💼' :
+                                              service.icon === 'cash-register' ? '💰' :
+                                                service.icon === 'warehouse' ? '📦' :
+                                                  service.icon === 'globe' ? '🌐' :
+                                                    service.icon === 'palette' ? '🎨' : '🚀'}
                               </div>
                               <div className="flex-1">
                                 <h4 className="font-semibold text-foreground group-hover:text-accent transition-colors">
@@ -137,10 +144,41 @@ export function Header() {
                 )}
               </AnimatePresence>
             </div>
+
+            <button
+              onClick={() => dispatch(openContactModal())}
+              className="px-4 py-2 bg-accent text-white rounded-full font-medium hover:bg-accent/90 transition-colors"
+            >
+              Let's Talk
+            </button>
           </nav>
 
           {/* Controls */}
           <div className="flex items-center gap-4">
+            {/* Language Switcher */}
+            <div className="relative group">
+              <button className="p-2 hover:bg-secondary rounded-lg transition-colors flex items-center gap-1">
+                <Globe className="w-5 h-5" />
+                <span className="text-sm font-medium uppercase">{locale}</span>
+              </button>
+              <div className="absolute right-0 top-full pt-2 w-24 hidden group-hover:block">
+                <div className="bg-popover border border-border rounded-lg shadow-lg overflow-hidden">
+                  <button
+                    onClick={() => switchLocale('en')}
+                    className={`w-full text-left px-4 py-2 text-sm hover:bg-secondary transition-colors ${locale === 'en' ? 'bg-secondary font-semibold' : ''}`}
+                  >
+                    English
+                  </button>
+                  <button
+                    onClick={() => switchLocale('bn')}
+                    className={`w-full text-left px-4 py-2 text-sm hover:bg-secondary transition-colors ${locale === 'bn' ? 'bg-secondary font-semibold' : ''}`}
+                  >
+                    Bangla
+                  </button>
+                </div>
+              </div>
+            </div>
+
             {mounted && (
               <button
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
@@ -199,7 +237,7 @@ export function Header() {
                     </Link>
                   </motion.div>
                 ))}
-                
+
                 {/* Mobile Services Dropdown */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
@@ -213,12 +251,11 @@ export function Header() {
                   >
                     <span>Services</span>
                     <ChevronDown
-                      className={`w-5 h-5 transition-transform duration-200 ${
-                        mobileServicesOpen ? 'rotate-180' : ''
-                      }`}
+                      className={`w-5 h-5 transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180' : ''
+                        }`}
                     />
                   </button>
-                  
+
                   <AnimatePresence>
                     {mobileServicesOpen && (
                       <motion.div
@@ -241,17 +278,17 @@ export function Header() {
                             >
                               <div className="flex items-center gap-3">
                                 <span className="text-xl">
-                                  {service.icon === 'cloud' ? '☁️' : 
-                                   service.icon === 'shopping-cart' ? '🛒' : 
-                                   service.icon === 'zap' ? '⚡' : 
-                                   service.icon === 'layers' ? '🏗️' :
-                                   service.icon === 'book' ? '📚' :
-                                   service.icon === 'clipboard' ? '📋' :
-                                   service.icon === 'briefcase' ? '💼' :
-                                   service.icon === 'cash-register' ? '💰' :
-                                   service.icon === 'warehouse' ? '📦' :
-                                   service.icon === 'globe' ? '🌐' :
-                                   service.icon === 'palette' ? '🎨' : '🚀'}
+                                  {service.icon === 'cloud' ? '☁️' :
+                                    service.icon === 'shopping-cart' ? '🛒' :
+                                      service.icon === 'zap' ? '⚡' :
+                                        service.icon === 'layers' ? '🏗️' :
+                                          service.icon === 'book' ? '📚' :
+                                            service.icon === 'clipboard' ? '📋' :
+                                              service.icon === 'briefcase' ? '💼' :
+                                                service.icon === 'cash-register' ? '💰' :
+                                                  service.icon === 'warehouse' ? '📦' :
+                                                    service.icon === 'globe' ? '🌐' :
+                                                      service.icon === 'palette' ? '🎨' : '🚀'}
                                 </span>
                                 <div>
                                   <div className="font-medium text-sm">{service.title}</div>
